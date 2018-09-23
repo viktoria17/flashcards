@@ -26,11 +26,12 @@ const cards = [
     el: '#flashcard-app',
     data: {
       cards: cards,
+      newFrontCard: '',
+      newBackCard: ''
     },
     methods: {
       toggleCard: function (card) {
         card.flipped = !card.flipped;
-        console.log(card.flipped)
       }
     }
   });
