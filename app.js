@@ -39,6 +39,9 @@ const cards = [
           back: this.newBackText,
           flipped: false,
         });
+      },
+      deleteCard: function (index) {
+        this.cards.splice(index, 1);
       }
     }
   });
