@@ -27,18 +27,27 @@ const cards = [
     data: {
       cards: cards,
       newFrontText: '',
-      newBackText: ''
+      newBackText: '',
+      error: false
     },
     methods: {
       toggleCard: function (card) {
         card.flipped = !card.flipped;
       },
       addNewCard: function () {
-        this.cards.unshift({
-          front: this.newFrontText,
-          back: this.newBackText,
-          flipped: false,
-        });
+        if (!this.newFrontText || !this.newBackText) {
+          this.error = true;
+        } else {
+          this.cards.unshift({
+            front: this.newFrontText,
+            back: this.newBackText,
+            flipped: false,
+          });
+
+          this.newFrontText = '';
+          this.newBackText = '';
+          this.error = false;
+        }
       },
       deleteCard: function (index) {
         this.cards.splice(index, 1);
